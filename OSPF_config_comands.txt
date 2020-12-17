@@ -1,0 +1,106 @@
+R1
+conf t
+int f0/0
+ip  add 10.0.1.1 255.255.255.0
+no shut
+router ospf 1
+network 10.0.1.0 0.0.0.255 area 0
+int f1/0
+ip  add 10.0.3.1 255.255.255.0
+no shut
+router ospf 1
+network 10.0.3.0 0.0.0.255 area 0
+int f2/0
+ip  add 10.0.2.1 255.255.255.0
+no shut
+router ospf 1
+network 10.0.2.0 0.0.0.255 area 0
+end
+wr
+sh ip int br
+sh ip ospf
+sh ip route
+sh ip ospf neighbor
+
+
+R2
+conf t
+int f0/0
+ip  add 10.0.1.2 255.255.255.0
+no shut
+router ospf 1
+network 10.0.1.0 0.0.0.255 area 0
+int f1/0
+ip  add 10.0.4.1 255.255.255.0
+no shut
+router ospf 1
+network 10.0.4.0 0.0.0.255 area 0
+int f2/0
+ip  add 192.168.1.1 255.255.255.0
+no shut
+router ospf 1
+network 192.168.1.0 0.0.0.255 area 0
+end
+wr
+sh ip int br
+sh ip ospf
+sh ip route
+sh ip ospf neighbor
+
+
+R3
+conf t
+
+int f0/0
+ip  add 10.0.5.1 255.255.255.0
+no shut
+router ospf 1
+network 10.0.5.0 0.0.0.255 area 0
+int f1/0
+ip  add 10.0.4.2 255.255.255.0
+no shut
+router ospf 1
+network 10.0.4.0 0.0.0.255 area 0
+int f2/0
+ip  add 10.0.2.2 255.255.255.0
+no shut
+router ospf 1
+network 10.0.2.0 0.0.0.255 area 0
+int f3/0
+ip  add 192.168.2.1 255.255.255.0
+no shut
+router ospf 1
+network 192.168.2.0 0.0.0.255 area 0
+end
+wr
+sh ip int br
+sh ip ospf
+sh ip route
+sh ip ospf neighbor
+
+
+R4
+conf t
+int f0/0
+ip  add 10.0.5.2 255.255.255.0
+no shut
+router ospf 1
+network 10.0.5.0 0.0.0.255 area 0
+int f1/0
+ip  add 10.0.3.2 255.255.255.0
+no shut
+router ospf 1
+network 10.0.3.0 0.0.0.255 area 0
+int f2/0
+ip  add 192.168.3.1 255.255.255.0
+no shut
+router ospf 1
+network 192.168.3.0 0.0.0.255 area 0
+end
+wr
+sh ip int br
+sh ip ospf
+sh ip route
+sh ip ospf neighbor
+
+
